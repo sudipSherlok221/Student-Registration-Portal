@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Registration Successful</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:Poppins,sans-serif;
+
+}
+
+body{
+
+background:linear-gradient(135deg,#16a34a,#059669);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+}
+
+.card{
+
+background:white;
+
+padding:50px;
+
+border-radius:20px;
+
+width:700px;
+
+text-align:center;
+
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+animation:fade 1s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.check{
+
+font-size:90px;
+
+color:#22c55e;
+
+}
+
+h1{
+
+margin:20px 0;
+
+color:#15803d;
+
+}
+
+.info{
+
+margin-top:30px;
+
+text-align:left;
+
+font-size:18px;
+
+line-height:2;
+
+}
+
+.btns{
+
+margin-top:40px;
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+}
+
+button{
+
+padding:14px 30px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.print{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+.home{
+
+background:#16a34a;
+
+color:white;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="check">
+
+✔
+
+</div>
+
+<h1>
+
+Registration Successful
+
+</h1>
+
+<p>
+
+Your registration has been completed successfully.
+
+</p>
+
+<div class="info">
+
+<p><b>Registration ID :</b> <span id="reg"></span></p>
+
+<p><b>Student Name :</b> <span id="name"></span></p>
+
+<p><b>Department :</b> <span id="department"></span></p>
+
+<p><b>Course :</b> <span id="course"></span></p>
+
+<p><b>Semester :</b> <span id="semester"></span></p>
+
+</div>
+
+<div class="btns">
+
+<button class="print" onclick="window.print()">
+
+Print Slip
+
+</button>
+
+<button class="home" onclick="location.href='index.html'">
+
+Home
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const student=JSON.parse(localStorage.getItem("student"));
+
+document.getElementById("reg").innerHTML=localStorage.getItem("registrationID");
+
+document.getElementById("name").innerHTML=student.name;
+
+document.getElementById("department").innerHTML=student.department;
+
+document.getElementById("course").innerHTML=student.course;
+
+document.getElementById("semester").innerHTML=student.semester;
+
+</script>
+
+</body>
+</html>

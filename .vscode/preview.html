@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview Registration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#0f172a,#2563eb);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+min-height:100vh;
+
+padding:30px;
+
+}
+
+.card{
+
+width:850px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+
+padding:40px;
+
+border-radius:20px;
+
+color:white;
+
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+
+}
+
+h1{
+
+text-align:center;
+
+margin-bottom:30px;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+td{
+
+padding:14px;
+
+border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+td:first-child{
+
+font-weight:bold;
+
+width:35%;
+
+}
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:35px;
+
+}
+
+button{
+
+padding:14px 30px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.edit{
+
+background:#ef4444;
+
+color:white;
+
+}
+
+.register{
+
+background:#10b981;
+
+color:white;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Student Details Preview</h1>
+
+<table>
+
+<tr><td>Full Name</td><td id="name"></td></tr>
+
+<tr><td>Father's Name</td><td id="father"></td></tr>
+
+<tr><td>Mother's Name</td><td id="mother"></td></tr>
+
+<tr><td>Date of Birth</td><td id="dob"></td></tr>
+
+<tr><td>Gender</td><td id="gender"></td></tr>
+
+<tr><td>Department</td><td id="department"></td></tr>
+
+<tr><td>Course</td><td id="course"></td></tr>
+
+<tr><td>Semester</td><td id="semester"></td></tr>
+
+<tr><td>Email</td><td id="email"></td></tr>
+
+<tr><td>Mobile</td><td id="mobile"></td></tr>
+
+<tr><td>Address</td><td id="address"></td></tr>
+
+</table>
+
+<div class="buttons">
+
+<button class="edit" onclick="history.back()">
+
+Edit
+
+</button>
+
+<button class="register" onclick="registerStudent()">
+
+Confirm Registration
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const student=JSON.parse(localStorage.getItem("student"));
+
+if(student){
+
+document.getElementById("name").innerHTML=student.name;
+
+document.getElementById("father").innerHTML=student.father;
+
+document.getElementById("mother").innerHTML=student.mother;
+
+document.getElementById("dob").innerHTML=student.dob;
+
+document.getElementById("gender").innerHTML=student.gender;
+
+document.getElementById("department").innerHTML=student.department;
+
+document.getElementById("course").innerHTML=student.course;
+
+document.getElementById("semester").innerHTML=student.semester;
+
+document.getElementById("email").innerHTML=student.email;
+
+document.getElementById("mobile").innerHTML=student.mobile;
+
+document.getElementById("address").innerHTML=student.address;
+
+}
+
+function registerStudent(){
+
+const reg="REG"+new Date().getFullYear()+Math.floor(Math.random()*9000+1000);
+
+localStorage.setItem("registrationID",reg);
+
+window.location.href="success.html";
+
+}
+
+</script>
+
+</body>
+</html>
